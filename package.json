@@ -1,0 +1,26 @@
+{
+  "name": "RoulEats_Reloaded",
+  "version": "1.0.0",
+  "description": "RoulEats_Reloaded",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkoeckritz/RoulEats_Reloaded.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kkoeckritz/RoulEats_Reloaded/issues"
+  },
+  "homepage": "https://github.com/kkoeckritz/RoulEats_Reloaded#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.38.1",
+    "sequelize-cli": "^4.1.1"
+  }
+}
