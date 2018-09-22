@@ -11,10 +11,10 @@ module.exports = function(app) {
 app.post("/api/v1/user", function(req, res) {
     console.log(req.body);
     db.User.create({
-    text: req.body.text,
-    complete: req.body.complete
-    }).then(function(dbUser) {
-    res.json(dbUser);
+        text: req.body.text,
+        complete: req.body.complete
+        }).then(function(dbUser) {
+        res.json(dbUser);
     });
 });
 
@@ -28,12 +28,29 @@ app.get("/api/v1/user/:id", function(req, res) {
 
 // PUT route for updating users
 app.put("/api/v1/user/:id", function(req, res) {
-
+    db.User.update({
+        text: req.body.text,
+        complete: req.body.complete
+      }, {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbUser) {
+        res.json(dbUser);
+      });
+  
 });
 
 // DELETE route for deleting users
 app.delete("/api/v1/user/:id", function(req, res) {
-
+    db.User.destroy({
+        where: {
+          id: req.params.id
+        }
+      }).then(function(dbUser) {
+        res.json(dbUser);
+      });
+  
 });
 
 
