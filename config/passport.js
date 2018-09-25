@@ -117,19 +117,18 @@ module.exports = function(passport) {
         console.log(`profile: ${JSON.stringify(profile)}`);
         done(null, profile);
 
-        let query = "SELECT * FROM users WHERE facebook_id = ?";
-        connection.query(query, [profile.id], function(err, rows) {
-            if (err) return done(err);
-            var newUserMysql = {};
-
-            if (rows.length) {
-                newUserMysql.id = rows[0].id;
-                return done(null, newUserMysql);
+        //let query = "SELECT * FROM users WHERE facebook_id = ?";
+        //connection.query(query, [profile.id], function(err, rows) {
+        db.User.findOne({ where: { facebook_id: profile.id } }).then( user => { 
+            if (user) {
+                console.log("User found");
+                return done(null, user);
             } else {
+                console.log("User not found");
                 // if there is no user with that username
                 // create the user
 
-                var query = "INSERT INTO users ( username, facebook_id, password, name ) values (?,?,?)";
+                var query = "INSERT INTO users ( username, facebook_id, password, name ) values (?,?,?,?)";
                 var values = [profile.id, profile.id, "facebook", profile.displayName];
                 connection.query(query, values, function(err, rows) {
                     if (err) throw err;

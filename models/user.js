@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    facebook_id: DataTypes.INTEGER
+    facebook_id: DataTypes.STRING
   });
 
   User.associate = function(models) {
