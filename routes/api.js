@@ -1,7 +1,58 @@
+// Dependencies
+// =============================================================
 const Yelp = require("yelp-fusion");
 const yelp = Yelp.client(process.env.YELP_API_KEY);
+var db = require("../models");
 
+// Routes
+// =============================================================
 module.exports = function(app) {
+
+// POST route for creating a new user
+app.post("/api/v1/user", function(req, res) {
+    console.log(req.body);
+    db.User.create({
+        text: req.body.text,
+        complete: req.body.complete
+        }).then(function(dbUser) {
+        res.json(dbUser);
+    });
+});
+
+    
+// GET route for reading users
+app.get("/api/v1/user/:id", function(req, res) {
+    db.User.findAll({}).then(function(dbUser) {
+    res.json(dbUser);
+    });
+});
+
+// PUT route for updating users
+app.put("/api/v1/user/:id", function(req, res) {
+    db.User.update({
+        text: req.body.text,
+        complete: req.body.complete
+      }, {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbUser) {
+        res.json(dbUser);
+      });
+  
+});
+
+// DELETE route for deleting users
+app.delete("/api/v1/user/:id", function(req, res) {
+    db.User.destroy({
+        where: {
+          id: req.params.id
+        }
+      }).then(function(dbUser) {
+        res.json(dbUser);
+      });
+  
+});
 
     app.get("/api/data", function(req, res) {
         yelp.search({
@@ -58,4 +109,5 @@ module.exports = function(app) {
             console.log(err);
         });
     });
+
 };
