@@ -1,20 +1,22 @@
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    user_email: {
+    username: DataTypes.STRING,
+    name: DataTypes.STRING,
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-    user_password: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1]
       }
     },
-    user_facebookID: DataTypes.INTEGER,
+    facebook_id: DataTypes.INTEGER,
     user_created_at: DataTypes.DATE
   });
 
