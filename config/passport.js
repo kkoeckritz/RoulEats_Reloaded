@@ -55,12 +55,15 @@ module.exports = function(passport) {
         function(req, username, password, done) {
             // find a user whose email is the same as the forms email
             // we are checking to see if the user trying to login already exists
-            connection.query("SELECT * FROM users WHERE username = ?",[username], function(err, rows) {
-                if (err)
-                    return done(err);
-                if (rows.length) {
+            //connection.query("SELECT * FROM users WHERE username = ?",[username], function(err, rows) {
+            db.User.findOne({ where: { username: username } }).then( user => {
+                console.log(`Find one executed, value is: ${user}`);
+                if (user) { // user name taken
+                    console.log("User already exists.");
                     return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
-                } else {
+                } 
+                
+                else {
                     // if there is no user with that username
                     // create the user
                     var newUserMysql = {
