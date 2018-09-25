@@ -33,8 +33,11 @@ module.exports = function(passport) {
 
     // used to deserialize the user
     passport.deserializeUser(function(id, done) {
-        connection.query("SELECT * FROM users WHERE id = ? ",[id], function(err, rows){
-            done(err, rows[0]);
+        db.User.findOne({ where: { id: id } }).then( user => {
+            if (!user) { // user name taken
+                return done(false, false);
+            } 
+            done(null, user);
         });
     });
 
