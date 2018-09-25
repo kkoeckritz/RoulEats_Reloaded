@@ -53,32 +53,15 @@ module.exports = function(passport) {
             passReqToCallback : true // allows us to pass back the entire request to the callback
         },
         function(req, username, password, done) {
-            // find a user whose email is the same as the forms email
-            // we are checking to see if the user trying to login already exists
-            //connection.query("SELECT * FROM users WHERE username = ?",[username], function(err, rows) {
             db.User.findOne({ where: { username: username } }).then( user => {
                 console.log(`Find one executed, value is: ${user}`);
                 if (user) { // user name taken
-                    console.log("User already exists.");
                     return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
                 } 
-                
-                else {
-                    // if there is no user with that username
-                    // create the user
-                    var newUserMysql = {
-                        username: username,
-                        password: bcrypt.hashSync(password, null, null)  // use the generateHash function in our user model
-                    };
-
-                    var insertQuery = "INSERT INTO users ( username, password ) values (?,?)";
-
-                    connection.query(insertQuery,[newUserMysql.username, newUserMysql.password],function(err, rows) {
-                        if (err) throw err;
-
-                        newUserMysql.id = rows.insertId;
-
-                        return done(null, newUserMysql);
+                else { // otherwise create new user
+                    var encryptedPassword = bcrypt.hashSync(password, null, null);
+                    db.User.create({ username: username, password: encryptedPassword }).then(dbUser => {
+                        return done(null, dbUser);
                     });
                 }
             });
