@@ -65,6 +65,25 @@ app.delete("/api/v1/user/:id", function(req, res) {
         });
     });
 
+    // GET route for compiling all restaurant cateories
+    app.get("/api/cuisines", function(req, res) {
+        var cats = fs.readFileSync(path.join(__dirname, "categories.json"));
+        var cats_json = JSON.parse(cats);
+        var cuisines = {
+            alias: [],
+            title: []
+        };
+
+        for (c of cats_json) {
+            if (c.parents == "restaurants" || c.parents == "food") {
+                cuisines.alias.push(c.alias);
+                cuisines.title.push(c.title);
+            }
+        }
+
+        res.json(cuisines);
+    });
+
     // get restaurants nearby to user's lat,lon
     app.post("/api/find", function(req, res) {
         var yelp_data = {};
@@ -76,7 +95,8 @@ app.delete("/api/v1/user/:id", function(req, res) {
             term: "food",
             latitude: lat,
             longitude: lon,
-            radius: radius
+            radius: radius,
+            limit: 35
         }).then(response => {
 
             // grab returned restaurant data
