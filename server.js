@@ -18,6 +18,8 @@ var flash    = require('connect-flash');
 
 require('./config/passport')(passport); // pass passport for configuration
 
+app.use(express.static("public"));
+
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
@@ -43,7 +45,7 @@ require("./routes/api")(app);
 require("./routes/html")(app, path);
 require('./routes/login.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
-app.use(express.static(__dirname + '/public'));
+// app.use(express.static(__dirname + 'public'));
 
 // launch ======================================================================
 app.listen(port);
