@@ -76,7 +76,8 @@ app.delete("/api/v1/user/:id", function(req, res) {
             term: "food",
             latitude: lat,
             longitude: lon,
-            radius: radius
+            radius: radius,
+            limit: 35
         }).then(response => {
 
             // grab returned restaurant data
