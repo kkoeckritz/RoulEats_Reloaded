@@ -5,6 +5,10 @@ body {
 	
 }
 
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 .box {
 	width: 200px;
 	height: 200px;
@@ -107,6 +111,11 @@ img {
 	background: #ea5455;
 	opacity: 0.9;
 
+}
+
+footer {
+	text-align: center;
+	padding: 20px;
 }
 
 /* rotating cube */

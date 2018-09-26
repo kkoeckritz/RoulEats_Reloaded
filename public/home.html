@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
+
+  <!-- Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.1.0/nouislider.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Knewave" rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>RoulEats</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <br>
+        <a id="homepage" href="index.html"><i class="fas fa-cube fa-4x"></i></a>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <div class="brand">
+        <h1 id="brand_roul">Roul</h1>
+        <h1 id="brand_eats">Eats</h1>
+      </div>
+      <br>
+      <br>
+      <div class="box">
+        <div id="cube">
+          <div class="front">
+            <img src="https://image.flaticon.com/icons/svg/433/433138.svg">
+          </div>
+          <div class="back">
+            <img src="https://image.flaticon.com/icons/svg/883/883806.svg">
+          </div>
+          <div class="right">
+            <img src="https://image.flaticon.com/icons/svg/1037/1037793.svg">
+          </div>
+          <div class="left">
+            <img src="https://image.flaticon.com/icons/svg/468/468637.svg">
+          </div>
+          <div class="top">
+            <img src="https://image.flaticon.com/icons/svg/94/94280.svg">
+          </div>
+          <div class="bottom">
+            <img src="https://image.flaticon.com/icons/svg/651/651589.svg">
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <p class="caption">Too hungry to decide on a restaurant? Let us decide for you!</p>
+    </div>
+    <div class="container link">
+      <div id="submit_it" class="row">
+        <div class="col-md-4 col-sm-6">
+            <button class="btn waves-effect waves-light orange darken-1 btn-block" type="submit" name="action">
+              <a id="findfood" href="#">go</a>
+              <i class="fas fa-arrow-circle-right"></i>
+            </button>
+        </div>
+      </div>
+      <div id="exclusion" class="row">
+        <div id="exclusion_label" class="col-md-2 col-sm-12">
+          <p> excluding: </p>
+        </div>
+        <div id="exclusion_list" class="col-md-10 col-sm-12"></div>
+      </div>
+    </div>
+  </div>
+
+    <div id="results_div" class="container-fluid">
+    <div class="row">
+      <div id="restaurant-name">
+      </div>
+    </div>
+    <div id="results_row" class="row">
+      <div class="col-md-6">
+        <div id="results"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="try_again">
+                    <button class="btn waves-effect waves-light orange darken-1 btn-block refreshBtn btn tooltipped" data-position="bottom" data-tooltip="Don't like it? Try again!" type="submit" name="action">
+                      <img class="refresh" src="https://image.flaticon.com/icons/svg/159/159612.svg">
+                    </button>
+                  </div>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-6">
+          <div id="map-canvas"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+    crossorigin="anonymous"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.1.0/nouislider.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.1.0/wNumb.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvtPXnxQ15r662-kTt4t0KKQWuRNIDLpM"></script>
+  <script type="text/javascript" src="./assets/js/googlemaps.js"></script>
+  <script type="text/javascript" src="./assets/js/zomato.js"></script>
+  <script type="text/javascript" src="./assets/js/app.js"></script>
+
+</body>
+
+</html>
