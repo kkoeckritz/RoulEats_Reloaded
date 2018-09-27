@@ -11,6 +11,13 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var path = require("path");
 var app      = express();
+var jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
+var $ = require("jquery")(window);
+
 var port     = process.env.PORT || 8080;
 
 var passport = require('passport');
