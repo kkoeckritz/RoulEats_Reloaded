@@ -48,16 +48,19 @@ module.exports = function(app, passport) {
 	// PROFILE SECTION =========================
 	// =====================================
 	// we will want this protected so you have to be logged in to visit
-	// we will use route middleware to verify this (the isLoggedIn function)
+    // we will use route middleware to verify this (the isLoggedIn function)
+
 	app.get('/profile', isLoggedIn, function(req, res) {
+        var userViewSet = getUserViewSet(req);
 		res.render('profile.ejs', {
-			user : req.user // get the user out of session and pass to template
+			user : userViewSet // get the user out of session and pass to template
 		});
 	});
 
 	app.get('/preference', isLoggedIn, function(req, res) {
+        var userViewSet = getUserViewSet(req);
 		res.render('preference.ejs', {
-			user : req.user // get the user out of session and pass to template
+			user : userViewSet // get the user out of session and pass to template
 		});
 	});
 
@@ -113,4 +116,23 @@ function isLoggedIn(req, res, next) {
 
 	// if they aren't redirect them to the home page
 	res.redirect('/');
+}
+
+function getUserViewSet(req) {
+    var userViewSet = {
+        name: req.user.dataValues.username,
+        email: req.user.dataValues.username,
+        facebook_id: undefined,
+        isFacebook: false
+    };
+    let isFacebook = req.user.dataValues.facebook_id.length > 0;
+    console.log("isFacebook: " + isFacebook);
+    if (isFacebook) {
+        console.log("got hurr");
+        userViewSet.name = req.user.dataValues.name;
+        userViewSet.email = req.user.dataValues.email;
+        userViewSet.facebook_id = req.user.dataValues.facebook_id;
+        userViewSet.isFacebook = true;
+    }
+    return userViewSet;
 }
