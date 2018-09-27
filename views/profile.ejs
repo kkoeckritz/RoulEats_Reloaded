@@ -26,7 +26,7 @@
 
 		<nav>
 				<div class="nav-wrapper">
-				  <a href="#" class="brand"><strong>Welcome</strong> <%= user.username %></a>
+				  <a href="#" class="brand"><strong>Welcome</strong> <%= user.name %></a>
 				  <ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><button data-target="slide-out" class="sidenav-trigger button">Profile</button></li>
 					<li><a href="/logout">Logout</a></li>
@@ -39,9 +39,13 @@
 			<div class="background">
 			  <img src="images/office.jpg">
 			</div>
-			<a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-			<a href="#name"><span class="name"><%= user.username %></span></a>
-			<a href="#email"><span class="email">email</span></a>
+			<% if(user.isFacebook){ %>
+				<a href="#user"><img class="circle" src=<%= 'https://graph.facebook.com/' + user.facebook_id + '/picture?type=large&width=720&height=720' %>></a>
+			<% } else{ %>
+				<a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+			<% } %>
+			<a href="#name"><span class="name"><%= user.name %></span></a>
+			<a href="#email"><span class="email"><%= user.email %></span></a>
 		  </div></li>
 		  <li><a href="#">First Link</a></li>
 		  <li><a href="/preference">Edit Preference</a></li>
@@ -104,7 +108,7 @@
   
 <script>
 	$(document).ready(function(){
-    $('.sidenav').sidenav();
+	$('.sidenav').sidenav();
   });
 </script>
 </body>
