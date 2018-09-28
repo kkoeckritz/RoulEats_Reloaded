@@ -20,7 +20,7 @@ var loc = {
 			var watchID = navigator.geolocation.watchPosition(function(position) {
 				loc.lat = position.coords.latitude;
                 loc.lon = position.coords.longitude;
-                $("#find_food").prop("disabled", false);
+                $(".find_food").prop("disabled", false);
                 
                 console.log("Location updated.");
 				console.log("lat: " + loc.lat);
@@ -34,7 +34,7 @@ var loc = {
 
 // enable #find_food button, set onclick action
 function setFindClick() {
-    $("#find_food").on("click", function() {
+    $(".find_food").on("click", function() {
         const radius = $("#search_radius").val();
 
 		// fill modal with ajax from POST call

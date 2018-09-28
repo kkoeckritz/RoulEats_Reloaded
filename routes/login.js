@@ -124,8 +124,9 @@ function getUserViewSet(req) {
         email: req.user.dataValues.username,
         facebook_id: undefined,
         isFacebook: false
-    };
-    let isFacebook = req.user.dataValues.facebook_id.length > 0;
+	};
+	
+    let isFacebook = req.user.dataValues.facebook_id !== null;
     console.log("isFacebook: " + isFacebook);
     if (isFacebook) {
         console.log("got hurr");
