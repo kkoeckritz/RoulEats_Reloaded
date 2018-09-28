@@ -5,18 +5,18 @@ var LocalStrategy   = require('passport-local').Strategy;
 var FacebookStrategy = require("passport-facebook").Strategy;
 
 // load up the user model
-var mysql = require('mysql');
+//var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
 var dbconfig = {
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD
 };
-var connection = mysql.createConnection(dbconfig);
+//var connection = mysql.createConnection(dbconfig);
 
 var db = require("../models");
 
-connection.query('USE ' + process.env.DATABASE_DB);
+//connection.query('USE ' + process.env.DATABASE_DB);
 // expose this function to our app using module.exports
 module.exports = function(passport) {
 
