@@ -13,7 +13,8 @@ var config = {
     "password": process.env.DATABASE_PASSWORD,
     "database": process.env.DATABASE_DB,
     "host": process.env.DATABASE_HOST,
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "use_env_variable": "JAWSDB_URL"
 }
 
 let sequelize;
