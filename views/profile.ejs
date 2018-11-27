@@ -2,139 +2,139 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-    <!-- Google Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Knewave" rel="stylesheet">  
-    <!-- Materialize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.1.0/nouislider.css">
-    <link rel="stylesheet" href="./../assets/css/style.css">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Knewave" rel="stylesheet">  
+	<!-- Materialize -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.1.0/nouislider.css">
+	<link rel="stylesheet" href="./../assets/css/style.css">
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	
 </head>
 <body>
-
-		<nav>
-				<div class="nav-wrapper">
-				  <a href="#" class="brand"><strong>Welcome</strong> <%= user.name %></a>
-				  <ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><button data-target="slide-out" class="sidenav-trigger button">Profile</button></li>
-					<li><a href="/logout">Logout</a></li>
-				  </ul>
-				</div>
-			  </nav>
-
-		<ul id="slide-out" class="sidenav">
-		  <li><div class="user-view">
+	
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#" class="brand"><strong>Welcome</strong> <%= user.name %></a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><button data-target="slide-out" class="sidenav-trigger button">Profile</button></li>
+				<li><a href="/logout">Logout</a></li>
+			</ul>
+		</div>
+	</nav>
+	
+	<ul id="slide-out" class="sidenav">
+		<li><div class="user-view">
 			<div class="background">
-			  <img src="https://via.placeholder.com/500x500">
+				<img src="https://via.placeholder.com/500x500">
 			</div>
 			<% if(user.isFacebook){ %>
 				<a href="#user"><img class="circle" src=<%= 'https://graph.facebook.com/' + user.facebook_id + '/picture?type=large&width=720&height=720' %>></a>
-			<% } else{ %>
-  			<a href="#user"><img class="circle" src="https://via.placeholder.com/350x350"></a>
-			<% } %>
-			<a href="#name"><span class="name"><%= user.name %></span></a>
-			<a href="#email"><span class="email"><%= user.email %></span></a>
-		  </div></li>
-		  <li><a href="/preference">Edit Preference</a></li>
-		  <li><div class="divider"></div></li>
-		  <li><a class="waves-effect" href="/preference">Logout</a></li>
-		</ul>
-			  
-
-		<div class="container-fluid">
+				<% } else{ %>
+					<a href="#user"><img class="circle" src="https://via.placeholder.com/350x350"></a>
+					<% } %>
+					<a href="#name"><span class="name"><%= user.name %></span></a>
+					<a href="#email"><span class="email"><%= user.email %></span></a>
+				</div></li>
+				<li><a href="/preference">Edit Preference</a></li>
+				<li><div class="divider"></div></li>
+				<li><a class="waves-effect" href="/preference">Logout</a></li>
+			</ul>
+			
+			
+			<div class="container-fluid">
 				<div class="jumbotron text-center">
 					<div class="container">
 						<div class="brand">
-						  <h1 id="brand_roul">Roul</h1>
-						  <h1 id="brand_eats">Eats</h1>
+							<h1 id="brand_roul">Roul</h1>
+							<h1 id="brand_eats">Eats</h1>
 						</div>
 						<br>
-					
-						<div class="box">
-						  <div id="cube">
-							<div class="front">
-							  <img src="https://image.flaticon.com/icons/svg/433/433138.svg">
-							</div>
-							<div class="back">
-							  <img src="https://image.flaticon.com/icons/svg/883/883806.svg">
-							</div>
-							<div class="right">
-							  <img src="https://image.flaticon.com/icons/svg/1037/1037793.svg">
-							</div>
-							<div class="left">
-							  <img src="https://image.flaticon.com/icons/svg/468/468637.svg">
-							</div>
-							<div class="top">
-							  <img src="https://image.flaticon.com/icons/svg/94/94280.svg">
-							</div>
-							<div class="bottom">
-							  <img src="https://image.flaticon.com/icons/svg/651/651589.svg">
-							</div>
-						  </div>
-						</div>
-						<br>
-					<br>
 						
-					<button class="find_food btn waves-effect waves-light orange darken-1 default" type="submit" disabled>Find Restaurant</button>
-		
-</div>
-</div>
-
-<div id="a_modal" class="modal">
-		<div class="modal-content">
-			<h4 class="center">You'll be dining at...</h4>
-			<br>
-			<div id="results" class="center">
-				<h3 id="rest_name"></h3>
-				<br>
-				<img id="rest_photo" src=""/ width= "500px">
-				<br>
-				<p id="rest_cats"></p>
-				<br>
-				<p id="rest_price"></p>
-				<p id="rest_rating"></p>
-				<p id="rest_phone"></p>
-				<p id="rest_address"></p>
-				<p id="rest_distance"></p>
-			</div>
-		</div>
-		<br>
-		<div class="modal-footer">
-			<a href="#!" class="modal-close waves-effect waves-green btn-flat">Find another Restaurant</a>
-		</div>
-	</div>
-
-<footer>
-        © 2018 Copyright RoulEats
-    </footer>
-
-
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
-	crossorigin="anonymous"></script>
-	  <!-- Compiled and minified JavaScript -->
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="./../assets/js/new.js"></script>
-<script>
-	$(document).ready(function(){
-	$('.sidenav').sidenav();
-  });
-</script>
+						<div class="box">
+							<div id="cube">
+								<div class="front">
+									<img src="https://image.flaticon.com/icons/svg/433/433138.svg">
+								</div>
+								<div class="back">
+									<img src="https://image.flaticon.com/icons/svg/883/883806.svg">
+								</div>
+								<div class="right">
+									<img src="https://image.flaticon.com/icons/svg/1037/1037793.svg">
+								</div>
+								<div class="left">
+									<img src="https://image.flaticon.com/icons/svg/468/468637.svg">
+								</div>
+								<div class="top">
+									<img src="https://image.flaticon.com/icons/svg/94/94280.svg">
+								</div>
+								<div class="bottom">
+									<img src="https://image.flaticon.com/icons/svg/651/651589.svg">
+								</div>
+							</div>
+						</div>
+						<br>
+						<br>
+						
+						<button class="find_food btn waves-effect waves-light orange darken-1 default" type="submit" disabled>Find Restaurant</button>
+						
+					</div>
+				</div>
+				
+				<div id="a_modal" class="modal">
+					<div class="modal-content">
+						<h4 class="center">You'll be dining at...</h4>
+						<br>
+						<div id="results" class="center">
+							<h3 id="rest_name"></h3>
+							<br>
+							<img id="rest_photo" src="/" width= "500px">
+							<br>
+							<p id="rest_cats"></p>
+							<br>
+							<p id="rest_price"></p>
+							<p id="rest_rating"></p>
+							<p id="rest_phone"></p>
+							<p id="rest_address"></p>
+							<p id="rest_distance"></p>
+						</div>
+					</div>
+					<br>
+					<div class="modal-footer">
+						<a href="#!" class="modal-close waves-effect waves-green btn-flat">Find another Restaurant</a>
+					</div>
+				</div>
+				
+				<footer>
+					© 2018 Copyright RoulEats
+				</footer>
+				
+				
+				<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+				<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+				crossorigin="anonymous"></script>
+				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+				crossorigin="anonymous"></script>
+				<!-- Compiled and minified JavaScript -->
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+				<script src="./../assets/js/new.js"></script>
+				<script>
+					$(document).ready(function(){
+						$('.sidenav').sidenav();
+					});
+				</script>
 </body>
 
 </html>
