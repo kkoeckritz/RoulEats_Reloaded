@@ -5,139 +5,141 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./../assets/css/style.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./../assets/css/style.css">
 	<style>
 		html, body { color: #ea5455;
-					background-color: #2d4059;
-				}
+      background-color: #2d4059;
+    }
 	</style>
 </head>
 <body>
-
-		<nav>
-				<div class="nav-wrapper">
-				  <a href="#" class="brand"><strong>Welcome</strong> <%= user.name %></a>
-				  <ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="/logout">Logout</a></li>
-				  </ul>
-				</div>
-			  </nav>
-<div class="container">
-
-	<div class="page-header text-center">
-		<h1><span class=""></span> Preference</h1>
-	</div>
-
-	<div class="row">
-
-		<!-- LOCAL INFORMATION -->
-		<div class="col-md-12">
-			<div class="well">
-        
+  
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand"><strong>Welcome</strong> <%= user.name %></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    
+    <div class="page-header text-center">
+      <h1><span class=""></span> Preference</h1>
+    </div>
+    
+    <div class="row">
+      
+      <!-- LOCAL INFORMATION -->
+      <div class="col-md-12">
+        <div class="well">
+          
           <p>Are you walking or driving?</p>
           <div class="switch">
-              <label>
+            <label>
               Yes
               <input type="checkbox">
               <span class="lever"></span>
               No
-              </label>
+            </label>
           </div>
           <p>Rating</p>
           <form action="#">
-                  <p>
-                    <label>
-                      <input name="group1" type="radio" checked />
-                      <span>1 and up</span>
-                    </label>
-  
-                    <label>
-                      <input name="group1" type="radio" />
-                      <span>2 and up</span>
-                    </label>
-    
-                    <label>
-                      <input class="with-gap" name="group1" type="radio"  />
-                      <span>3 and up</span>
-                    </label>
-         
-                    <label>
-                      <input name="group1" type="radio" disabled="disabled" />
-                      <span>4 and up</span>
-                    </label>
-                  </p>
-                </form>
-                      
+            <p>
+              <label>
+                <input name="group1" type="radio" checked />
+                <span>1 and up</span>
+              </label>
+              
+              <label>
+                <input name="group1" type="radio" />
+                <span>2 and up</span>
+              </label>
+              
+              <label>
+                <input class="with-gap" name="group1" type="radio"  />
+                <span>3 and up</span>
+              </label>
+              
+              <label>
+                <input name="group1" type="radio" disabled="disabled" />
+                <span>4 and up</span>
+              </label>
+            </p>
+          </form>
+          
           <p>What is your price range?</p>
           <div id="test-slider"></div>
-  
+          
           <p>More options</p>
           <form action="#">
-                  <p>
-                    <label>
-                      <input type="checkbox" />
-                      <span>Biking</span>
-                    </label>
-                    <label>
-                          <input type="checkbox" />
-                          <span>Wifi</span>
-                        </label>
-                        <label>
-                              <input type="checkbox" />
-                              <span>Group</span>
-                            </label>
-                            <label>
-                                  <input type="checkbox" />
-                                  <span>Study</span>
-                                </label>
-                                <label>
-                                      <input type="checkbox" />
-                                      <span>..</span>
-                                    </label>
-                                    <label>
-                                          <input type="checkbox" />
-                                          <span>..</span>
-                                        </label>
-                                        <label>
-                                              <input type="checkbox" />
-                                              <span>..</span>
-                                            </label>
-                  </p>
+            <p>
+              <label>
+                <input type="checkbox" />
+                <span>Biking</span>
+              </label>
+              <label>
+                <input type="checkbox" />
+                <span>Wifi</span>
+              </label>
+              <label>
+                <input type="checkbox" />
+                <span>Group</span>
+              </label>
+              <label>
+                <input type="checkbox" />
+                <span>Study</span>
+              </label>
+              <label>
+                <input type="checkbox" />
+                <span>..</span>
+              </label>
+              <label>
+                <input type="checkbox" />
+                <span>..</span>
+              </label>
+              <label>
+                <input type="checkbox" />
+                <span>..</span>
+              </label>
+            </p>
           </form>
-
-			</div>
-		</div>
-
-	</div>
-
-	<div class="row">
-		<div class="col-md-12">
-
-			<button type="submit" class="btn waves-effect waves-light orange darken-1 btn-lg btn-block"><a href="/profile">Save</a></button>
-			
-		</div>
-	</div>
-
-</div>
-
-<footer>
-    © 2018 Copyright RoulEats
-</footer>
-
-
-<script>
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+          
+        </div>
+      </div>
       
-</script>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+        
+        <button type="submit" class="btn waves-effect waves-light orange darken-1 btn-lg btn-block"><a href="/profile">Save</a></button>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+  <footer>
+    © 2018 Copyright RoulEats
+  </footer>
+  
+  
+  <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+    
+  </script>
+  
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
 </body>
 
 </html>
