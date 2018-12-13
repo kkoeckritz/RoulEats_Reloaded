@@ -376,11 +376,11 @@ label {
 }
 
 
-.footer {
+footer *{
 	background-color: #2d4059;
 	text-align: center;
-	padding: 20px;
-	margin-top: 60px;
+	padding: 0;
+	margin: 0;
 }
 
 /* IMPORTANT - must give map div height */
