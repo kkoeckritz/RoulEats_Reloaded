@@ -111,27 +111,27 @@ module.exports = function(passport) {
         callbackURL: process.env.FACEBOOK_CALLBACK
     };
     
-    var fbCallback = function(req, accessToken, refreshToken, profile, done) {
-        console.log(`accessToken: ${accessToken}`);
-        console.log(`refreshToken: ${refreshToken}`);
-        console.log(`profile: ${JSON.stringify(profile)}`);
+    // var fbCallback = function(req, accessToken, refreshToken, profile, done) {
+    //     console.log(`accessToken: ${accessToken}`);
+    //     console.log(`refreshToken: ${refreshToken}`);
+    //     console.log(`profile: ${JSON.stringify(profile)}`);
 
-        db.User.findOne({ where: { facebook_id: profile.id } }).then( user => { 
-            if (user) {
-                return done(null, user);
-            } else {
-                var newFbUser = { 
-                    username: profile.id, 
-                    facebook_id: profile.id, 
-                    name: profile.displayName, 
-                    password: "literallyunguessablepassword" 
-                }
-                db.User.create(newFbUser).then(dbUser => {
-                    return done(null, dbUser);
-                });
-            }
-        });
-    };
+    //     db.User.findOne({ where: { facebook_id: profile.id } }).then( user => { 
+    //         if (user) {
+    //             return done(null, user);
+    //         } else {
+    //             var newFbUser = { 
+    //                 username: profile.id, 
+    //                 facebook_id: profile.id, 
+    //                 name: profile.displayName, 
+    //                 password: "literallyunguessablepassword" 
+    //             }
+    //             db.User.create(newFbUser).then(dbUser => {
+    //                 return done(null, dbUser);
+    //             });
+    //         }
+    //     });
+    // };
 
-    passport.use(new FacebookStrategy(fbConfig, fbCallback));
+    // passport.use(new FacebookStrategy(fbConfig, fbCallback));
 };
