@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "RoulEats_Reloaded",
   "main": "index.js",
+  "engines": {
+    "node": "10.x"
+  },
   "directories": {
     "test": "test"
   },
