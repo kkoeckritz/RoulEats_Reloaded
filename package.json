@@ -2,6 +2,9 @@
   "name": "RoulEats_Reloaded",
   "version": "1.0.0",
   "description": "RoulEats_Reloaded",
+  "engines": {
+    "node": "10.x"
+  },
   "main": "index.js",
   "directories": {
     "test": "test"
