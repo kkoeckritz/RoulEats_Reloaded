@@ -38,7 +38,7 @@
     "passport": "^0.2.2",
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
-    "sequelize": "^4.38.1",
+    "sequelize": "^5.15.1",
     "yelp-fusion": "^2.2.1"
   }
 }
