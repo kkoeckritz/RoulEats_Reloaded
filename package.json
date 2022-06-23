@@ -31,7 +31,7 @@
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
     "jquery": "^3.3.1",
-    "jsdom": "^12.0.0",
+    "jsdom": "^16.5.0",
     "morgan": "^1.9.1",
     "mysql2": "^1.6.1",
     "nodemon": "^1.18.4",
